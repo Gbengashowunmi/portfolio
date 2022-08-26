@@ -1,14 +1,8 @@
 :root {
-  --color-brand--1: #ffb545;
-  --color-brand--2: #00c46a;
-
   --darker-blue: #030325;
   --dark-blue: #000a42;
   --color-light--1: #d7dff0;
-  /* --color-light--2: rgb(214, 222, 224); */
   --color-light--2: rgb(148, 164, 196);
-  /* transition: 1s; */
-  /* opacity: 1; */
 }
 
 .light-theme {
@@ -16,8 +10,6 @@
   --dark-blue: rgb(185, 202, 240);
   --color-light--1: #030325;
   --color-light--2: #000a42;
-  /* opacity: 0; */
-  /* transition: 2s; */
 }
 
 * {
@@ -47,16 +39,12 @@ header {
   z-index: 20;
   width: 100%;
   height: 80px;
-  /* position: fixed; */
   display: flex;
   align-items: center;
   justify-content: space-around;
-  /* padding: 3rem 8rem; */
-  /* gap: 3%; */
-  /* padding: 1.2rem; */
   position: absolute;
   color: var(--color-light--1);
-  /* background-color: rgba(52, 223, 52, 0.993); */
+  /* background-color: var(--darker-blue); */
 }
 
 .header-sticky {
@@ -67,8 +55,11 @@ header {
   /* margin-bottom: 50px; */
 }
 
-.header-sticky a.nav-link {
+.header-sticky a.nav-link{
   color: var(--darker-blue);
+}
+.header-sticky #bar1,.header-sticky #bar2,.header-sticky #bar3{
+  background-color: var(--darker-blue);
 }
 
 header h3 {
@@ -108,7 +99,7 @@ ul {
   align-items: center;
   justify-content: center;
   list-style: none;
-  /* background-color: rgb(43, 19, 19); */
+  /* background-color: rgb(172, 40, 40); */
 }
 
 li {
@@ -166,6 +157,7 @@ main {
   position: relative;
   font-family: "Edu QLD Beginner", cursive;
   font-size: 4rem;
+  font-weight: 800;
 }
 
 /* .name-container .text.first-text {
@@ -269,7 +261,7 @@ i:hover {
   margin-bottom: 2rem;
   width: fit-content;
   height: fit-content;
-  z-index: 13;
+  z-index: 100;
 }
 .theme {
   position: absolute;
@@ -313,11 +305,11 @@ section.about-me,
 }
 
 .underline {
-  width: 30%;
-  height: 1px;
+  width: 20rem;
+  height: .06rem;
   background-color: var(--color-light--1);
   border-radius: 50%;
-  margin: 30px;
+  margin: 1rem;
 }
 
 .info-container {
@@ -801,15 +793,6 @@ footer {
   padding: 10px;
 }
 
-/* .contact img{
-  width: 150px;
-  height: auto;
-  position: absolute;
-  border: none;
-}
-
-}
- */
 
 
  /* media query */
@@ -831,7 +814,7 @@ footer {
  @media(max-width:786px){  
 
   header {
-    z-index: 10;
+    /* z-index: 10; */
     width: 100%;
     height: fit-content;
     /* position: fixed; */
@@ -847,23 +830,6 @@ footer {
     /* background-color: rgba(52, 223, 52, 0.993); */
   }
 
-  /* .header-background{
-    background-color: var(--color-light--1);
-
-  } */
-  
-  /* .header-sticky {
-    background-color: var(--color-light--1);
-    position: fixed;
-    transition: 0.8s;
-    color: var(--darker-blue);
-    margin-bottom: 50px;
-  } */
-  
-  .header-sticky a.nav-link {
-    color: var(--darker-blue);
-  }
-  
   header .h3 {
     width: 100%;
     cursor: pointer;
@@ -877,18 +843,16 @@ footer {
   }
   .header {
     width: 100%;
-    /* height: 80px; */
     background-color: red;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin: ; */
-    /* justify-content: center; */
   }
 
-ul.nav-links {
+.nav-links {
     width: 100%;
-    /* height: 0px; */
+    height: 0;
+
     padding-top: 5rem;
     /* display: none; */
     border-bottom: solid 2px var(--color-light--1);
@@ -896,24 +860,16 @@ ul.nav-links {
     position: absolute;
     top: 0;
     flex-direction: column;
-    /* align-items: flex-start; */
-    /* justify-content: left; */
     list-style: none;
     /* background-color: rgb(43, 19, 19); */
     background-color: var(--darker-blue);
     transition: 2s;
-    /* color: #000a42; */
 
   }
   .nav-links.active{
     height: 350px;
     transition: 2s;
     opacity: 1;
-    /* display: block; */
-    /* color: #000a42; */
-
-
-
   }
   
   li {
@@ -925,10 +881,6 @@ ul.nav-links {
     font-size: 1rem;
     font-weight: bold;
     z-index: 1;
-
-    /* transition: 4s; */
-    /* opacity: 0; */
-    /* position: absolute; */
   }
 
   li.active{
@@ -952,10 +904,6 @@ ul.nav-links {
     /* display: none; */
   }
 
-  /* a.nav-link.active{
-    display: block;
-
-  } */
   .menu-icon{
     display: block;
     cursor: pointer;
@@ -971,14 +919,23 @@ ul.nav-links {
 
 }
 
+main {
+  height: 100vh;
+}
 
+section.about-me,
+.service,
+.skills {
+  padding: 1rem;
+}
+.about-me-content {
+  width: 100%;
+  /* background-color: red; */
+}
 
-
-
-
-  .skills-level {
-    width: 100%;
-  }
+.skills-content, .skills-level {
+  width: 100%;
+}
 
   .project-img {
     width: 100%;
@@ -989,37 +946,9 @@ ul.nav-links {
     width: 20rem;
   }
   
-  /* .overlay-project-image {
-    opacity: 1;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    padding: auto;
-    justify-content: center;
-    top: 0;
-    background-color: rgba(9, 9, 41, 0.438);
-    z-index: 8;
-    transition: 0.8s;
-    border: solid 3px rgb(233, 0, 78);
-    border-radius: 8px;
-  } */
-  
-
-  /* .open-project {
-    width: fit-content;
-    height: fit-content;
-    display: inline-block;
-    padding: 1% 6%;
-    border-radius: 10px;
-    text-align: center;
-    background-color: rgb(233, 0, 78);
-  } */
   
   img.image {
     width: 20rem;
     height: auto;
   }
-
  }
