@@ -110,7 +110,7 @@ const projects = [
   },
   {
     category: "web-design",
-    image: "/filter-project.png",
+    image: "filter-project.png",
     href: "https://gbengashowunmi.github.io/menu-filter/",
     price: "50",
     details:
