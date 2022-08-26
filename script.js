@@ -1,4 +1,3 @@
-
 /////SELECT ELEMENTS ///////
 
 const body = document.querySelector("body");
@@ -8,14 +7,14 @@ const main = document.querySelector(".main-content");
 const initialCoords = main.getBoundingClientRect();
 const header = document.querySelector("#home");
 
-const header2 = document.querySelector('header');
-const toggleDay = document.querySelectorAll('.theme');
-const moonIcon = document.querySelector('.fa-moon');
-const sunIcon = document.querySelector('.fa-sun');
-const root = document.querySelector(':root')
+const header2 = document.querySelector("header");
+const toggleDay = document.querySelectorAll(".theme");
+const moonIcon = document.querySelector(".fa-moon");
+const sunIcon = document.querySelector(".fa-sun");
+const allFilterBtns = document.querySelectorAll(".filter");
+const projectsContainer = document.querySelector(".project-img");
 
-
-
+const root = document.querySelector(":root");
 
 //NAV BAR
 
@@ -23,26 +22,24 @@ const menuIcon = document.querySelector(".menu-icon");
 
 const menuLinks = document.querySelector(".nav-links");
 
-const navLink = document.querySelector('li')
+const navLink = document.querySelector("li");
 // const body1 = document.querySelector(".body");
 
-menuIcon.addEventListener("click", ()=> {
-    menuIcon.classList.toggle("active");
-    menuLinks.classList.toggle("active");
-    // header.classList.add("header-sticky");
-    header.classList.toggle('header-background');
-    navLink.classList.toggle('active')
-    
-    // if(menuLinks.style.background = 'blue'){
-    //   console.log('done');
-    // }
-    
-})
+menuIcon.addEventListener("click", () => {
+  menuIcon.classList.toggle("active");
+  menuLinks.classList.toggle("active");
+  // header.classList.add("header-sticky");
+  header.classList.toggle("header-background");
+  navLink.classList.toggle("active");
 
-menuLinks.addEventListener("click", ()=> {
-  menuLinks.classList.remove("active")
+  // if(menuLinks.style.background = 'blue'){
+  //   console.log('done');
+  // }
+});
 
-})
+menuLinks.addEventListener("click", () => {
+  menuLinks.classList.remove("active");
+});
 
 // console.log(header2.getBoundingClientRect().height);
 // console.log(initialCoords);
@@ -63,101 +60,143 @@ navLinks.forEach((navLink) => {
     const headerOffset = header2.getBoundingClientRect().height;
     idSelectPosition = idSelect.getBoundingClientRect().top;
     const offsetPosition = idSelectPosition + window.pageYOffset - headerOffset;
-  
+
     ////Scroll effect///////
     window.scrollTo({
-      top:offsetPosition,
-       behavior: "smooth"
-  });
+      top: offsetPosition,
+      behavior: "smooth",
+    });
   });
 });
 
 //DARK MODE
 
-toggleDay.forEach((btn)=>{
-
-  btn.addEventListener('click', ()=>{
+toggleDay.forEach((btn) => {
+  btn.addEventListener("click", () => {
     // console.log('Day');
-  
-      body.classList.toggle('light-theme');
-      if(body.classList.contains('light-theme')){
-        console.log('back to dark');
-        moonIcon.classList.add('hidden')
-        sunIcon.classList.remove('hidden')
-      }
-    
-      else{
-        
-        moonIcon.classList.remove('hidden')
-        sunIcon.classList.add('hidden')
-      }
-      
-    
-  })
-})
+
+    body.classList.toggle("light-theme");
+    if (body.classList.contains("light-theme")) {
+      console.log("back to day");
+      moonIcon.classList.add("hidden");
+      sunIcon.classList.remove("hidden");
+    } else {
+      moonIcon.classList.remove("hidden");
+      sunIcon.classList.add("hidden");
+      console.log("back to night");
+
+    }
+  });
+});
 
 window.addEventListener("scroll", function (e) {
-  if (window.scrollY > initialCoords.top) {
+  // initialCoords.top
+  let height = 5;
+  if (window.scrollY > height) {
     header.classList.add("header-sticky");
   } else header.classList.remove("header-sticky");
 });
 
-
-
-
 //FILTER PROJECTS
+// prevent prettier
+const projects = [
+  {
+    category: "web-design",
+    image: "bank-app.png",
+    href: "https://gbengashowunmi.github.io/my-banking-app/",
+    price: "50",
+    details:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quia architecto ipsa quis provident iste quibusdam consequuntur in quae Lorem ipsum dolor sit.",
+  },
+  {
+    category: "web-design",
+    image: "/filter-project.png",
+    href: "https://gbengashowunmi.github.io/menu-filter/",
+    price: "50",
+    details:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quia architecto ipsa quis provident iste quibusdam consequuntur in quae Lorem ipsum dolor sit.",
+  },
+  {
+    category: "data-visuals",
+    image: "landing-page.png",
+    href: "https://gbengashowunmi.github.io/landingpage/",
+    price: "50",
+    details:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quia architecto ipsa quis provident iste quibusdam consequuntur in quae Lorem ipsum dolor sit.",
+  },
+  {
+    category: "data-visuals",
+    image: "tribute-page.png",
+    href: "https://gbengashowunmi.github.io/tribute-page.io/",
+    price: "50",
+    details:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quia architecto ipsa quis provident iste quibusdam consequuntur in quae Lorem ipsum dolor sit.",
+  },
+  {
+    category: "clone",
+    image: "bank-app.png",
+    href: "https://gbengashowunmi.github.io/my-banking-app/",
+    price: "50",
+    details:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quia architecto ipsa quis provident iste quibusdam consequuntur in quae Lorem ipsum dolor sit.",
+  },
+  {
+    category: "clone",
+    image: "bank-app.png",
+    href: "https://gbengashowunmi.github.io/my-banking-app/",
+    price: "50",
+    details:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quia architecto ipsa quis provident iste quibusdam consequuntur in quae Lorem ipsum dolor sit.",
+  },
+];
 
-const frame = [
-  {
-      category : 'web design',
-      image: "20210914_172354.jpg",
-      title : 'Bread',
-      price : '50',
-      details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quia architecto ipsa quis provident iste quibusdam consequuntur in quae Lorem ipsum dolor sit.' 
-  },
-  {
-      category : 'web design',
-      image: "20210918_200420.jpg",
-      title : 'Beans',
-      price : '53',
-      details: ' Commodi labore repellat excepturi earum sequi molestias repudiandae non odio ea quisquam ab voluptates dicta debitis quo, tempora totam nam magni.' 
-  },
-  {
-      category : 'data visualization',
-      image: "20211116_120211.jpg",
-      title : 'Amala',
-      price : '65',
-      details: 'Autem assumenda eaque sit voluptatem consectetur dolorum et. Ducimus quam quos vero ipsum illum dicta in veniam quod voluptate recusandae aut assumenda voluptatibus.' 
-  },
-  {
-      category : 'data visualization',
-      image: "20211126_234427.jpg",
-      title : 'yam',
-      price : '48',
-      details: 'quo repudiandae. Inventore, neque tenetur sit nesciunt consequuntur, optio illum fuga modi eligendi non corporis dolor explicabo animi. Dolorum unde alias molestiae quod.' 
-  },
-  {
-      category : 'data visualization',
-      image: "20220207_195528.jpg",
-      title : 'susage roll',
-      price : '83',
-      details: 'aperiam vel. Nam, dolorem culpa? Sequi est libero nemo blanditiis dolores aliquid optio! Ut delectus officiis, laboriosam et accusantium ipsam neque facere est tempore!' 
-  },
-  {
-      category : 'web app clones',
-      image: "20220207_195528.jpg",
-      title : 'susage roll',
-      price : '83',
-      details: 'aperiam vel. Nam, dolorem culpa? Sequi est libero nemo blanditiis dolores aliquid optio! Ut delectus officiis, laboriosam et accusantium ipsam neque facere est tempore!' 
-  },
-  {
-      category : 'web app clones',
-      image: "20220207_195528.jpg",
-      title : 'susage roll',
-      price : '83',
-      details: 'aperiam vel. Nam, dolorem culpa? Sequi est libero nemo blanditiis dolores aliquid optio! Ut delectus officiis, laboriosam et accusantium ipsam neque facere est tempore!' 
-  }
-]
+const displayProjects = function (projectsArray) {
+  // console.log(projectsArray);
+  let displayProjectsItems = projectsArray.map((project) => {
+    return `<div class="project-img-container">
+    <img src=${project.image} alt=${project.category} class="image" />
+    <div class="overlay-project-image ">
+      <a class="open--project--link" href=${project.href}
+        ><p class="open-project">Open Project</p></a
+      >
+    </div>
+    </div>`;
+  });
+
+  displayProjectsItems= displayProjectsItems.join(' ')
+  projectsContainer.innerHTML = displayProjectsItems;
+  return displayProjectsItems
+};
+
+
+displayProjects(projects)
+
+allFilterBtns.forEach((filterBtn) => {
+  filterBtn.addEventListener("click", (e) => {
+    const btn = e.currentTarget.classList[1];
+    // const btnn = e.currentTarget.dataset.me;
+
+    
+   const filtered = projects.filter((filterProjetcs) => {
+      if (btn === filterProjetcs.category)
+      // filterBtn.classList.add('active')
+
+      return filterProjetcs
+    });
+
+      btn === 'all'?displayProjects(projects):
+        displayProjects(filtered)    
+
+// console.log(filtered)
+
+
+  });
+});
+
+
+window.addEventListener('DOMContentLoaded', ()=>{
+displayProjects(projects)
+})
 // const obsCallback = function (entries) {
 //   const [entry] = entries;
 //   // console.log(entry);
@@ -185,25 +224,11 @@ const frame = [
 
 //   console.log(eachImage);
 //   eachImage.addEventListener('mouseover', function(){
-    
+
 //     console.log('action');
 //     overlayLabel.classList.toggle('hidden')
 //   })
 // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // const text = document.querySelector(".sec-text");
 // console.log(header.getBoundingClientRect());
@@ -220,9 +245,6 @@ const frame = [
 
 // textLoad()
 // setInterval(textLoad,12000)
-
-
-
 
 // const obsOptions = {
 //   root: null,
