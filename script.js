@@ -97,6 +97,31 @@ window.addEventListener("scroll", function (e) {
   } else header.classList.remove("header-sticky");
 });
 
+
+
+////MOVVING TEXT ANIMATION
+
+
+const text = document.querySelector(".sec-text");
+// console.log(header.getBoundingClientRect());
+// console.log(main.getBoundingClientRect());
+
+const textLoad = ()=>{
+  setTimeout(()=>{
+    text.textContent = "Web Developer"
+  }, 0)
+  setTimeout(()=>{
+    text.textContent = "Programmer"
+  }, 4000)
+  setTimeout(()=>{
+    text.textContent = "Freelancer"
+  }, 8000)
+}
+
+textLoad()
+setInterval(textLoad,12000)
+
+
 //FILTER PROJECTS
 // prevent prettier
 const projects = [
@@ -197,66 +222,4 @@ allFilterBtns.forEach((filterBtn) => {
 window.addEventListener('DOMContentLoaded', ()=>{
 displayProjects(projects)
 })
-// const obsCallback = function (entries) {
-//   const [entry] = entries;
-//   // console.log(entry);
-//   if (entry.isIntersecting) {
-//     sectionObserver  }
-//   // else {mainMain.classList.add('section--hidden')}
-//   // console.log(entries);
-// };
-// const obsOptions = {
-//   root: null,
-//   threshold: 0.1,
-// };
 
-// const observer = new IntersectionObserver(obsCallback, obsOptions);
-
-// mainMain.forEach(function (section) {
-//   const sectionObserver = section.classList.add("section--show");
-//   observer.observe(section);
-// });
-// const projectImageLabel = document.querySelectorAll('.project-img-container')
-
-// const overlayLabel = document.querySelector('.overlay-project-image')
-
-// projectImageLabel.forEach(function(eachImage){
-
-//   console.log(eachImage);
-//   eachImage.addEventListener('mouseover', function(){
-
-//     console.log('action');
-//     overlayLabel.classList.toggle('hidden')
-//   })
-// })
-
-// const text = document.querySelector(".sec-text");
-// console.log(header.getBoundingClientRect());
-// console.log(main.getBoundingClientRect());
-
-// const textLoad = ()=>{
-//   setTimeout(()=>{
-//     text.textContent = "Web Developer"
-//   }, 0)
-//   setTimeout(()=>{
-//     text.textContent = "Freelancer"
-//   }, 4000)
-// }
-
-// textLoad()
-// setInterval(textLoad,12000)
-
-// const obsOptions = {
-//   root: null,
-//   threshold: 0.1,
-// };
-
-// const obsCallback = function (entries, observer) {
-//   entries.forEach((entry) => {
-//     console.log(entry);
-//   });
-// };
-
-// const observer = new IntersectionObserver(obsCallback, obsOptions);
-
-// observer.observe(main);
